@@ -11,6 +11,8 @@ to work with the data in a number of ways:
 - With cursor-level access to a stream of parse events, somewhat analogous to StAX pull parsing and push serializing
   in the XML world.
 
+- **This fork is dedicated to provide another way to map strongly typed C++ data structures to the jsoncons data model using a dedicated type trait allowing to write a single function handling both serialization and deserialization instead of a is/as/to_json triad.** 
+
 Compared to other JSON libraries, jsoncons has been designed to handle very large JSON texts. At its heart are
 SAX-style parsers and serializers. It supports reading an entire JSON text in memory in a variant-like structure.
 But it also supports efficient access to the underlying data using StAX-style pull parsing and push serializing.
@@ -53,7 +55,7 @@ _"I am so happy I have come across your json c++ library!"_
 
 _"I finally decided on jsoncons after evaluating quite a few json libraries out there."_
 
-_"I’m using your library for an external interface to pass data, as well as using the conversions from csv to json, which are really helpful for converting data for use in javascript"_
+_"Iâ€™m using your library for an external interface to pass data, as well as using the conversions from csv to json, which are really helpful for converting data for use in javascript"_
 
 _"Verified that, for my needs in JSON and CBOR, it is working perfectly"_
 
