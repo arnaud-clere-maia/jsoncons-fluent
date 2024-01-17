@@ -13,6 +13,11 @@
 
 // From http://coliru.stacked-crooked.com/a/cfd0c5c5021596ad
 
+#ifdef __GNUC__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wcast-align" // by construction, cast are aligned
+#endif
+
 template <typename T>
 class FreeListAllocator {
     union node {
@@ -112,5 +117,9 @@ template <typename T, typename U>
 inline bool operator != (const FreeListAllocator<T>&, const FreeListAllocator<U>&) {
     return false;
 }
+
+#ifdef __GNUC__
+#pragma GCC diagnostic pop
+#endif
 
 #endif
