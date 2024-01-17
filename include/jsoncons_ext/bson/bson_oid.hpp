@@ -236,7 +236,10 @@ namespace jsoncons { namespace bson {
     void to_string(const oid_t& oid, StringT& s)
     {
         s.resize(24);
-        detail::init_hex_char_pairs(oid, reinterpret_cast<uint16_t*>(&s[0]));
+        // detail::init_hex_char_pairs(oid, reinterpret_cast<uint16_t*>(&s[0]));
+        uint16_t tmp[12];
+        detail::init_hex_char_pairs(oid, tmp);
+        std::memcpy(&s[0], &tmp, 24 * sizeof(char));
     }
 
 } // namespace bson
