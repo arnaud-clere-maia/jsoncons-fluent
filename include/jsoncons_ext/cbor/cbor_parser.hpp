@@ -1611,7 +1611,12 @@ private:
                     jsoncons::endian e = get_typed_array_endianness(tag); 
                     const size_t bytes_per_elem = get_typed_array_bytes_per_element(tag);
 
-                    uint16_t* data = reinterpret_cast<uint16_t*>(typed_array_.data());
+                    // uint16_t* data = reinterpret_cast<uint16_t*>(typed_array_.data());
+                    
+                    uint16_t data_val;
+                    uint16_t* data = &data_val;
+                    memcpy(data, typed_array_.data(), bytes_per_elem);
+
                     std::size_t size = typed_array_.size()/bytes_per_elem;
 
                     if (e != jsoncons::endian::native)
@@ -1638,7 +1643,11 @@ private:
                     jsoncons::endian e = get_typed_array_endianness(tag);
                     const size_t bytes_per_elem = get_typed_array_bytes_per_element(tag);
 
-                    uint32_t* data = reinterpret_cast<uint32_t*>(typed_array_.data());
+                    // uint32_t* data = reinterpret_cast<uint32_t*>(typed_array_.data());
+                    uint32_t data_val;
+                    uint32_t* data = &data_val;
+                    memcpy(data, typed_array_.data(), bytes_per_elem);
+
                     std::size_t size = typed_array_.size()/bytes_per_elem;
                     if (e != jsoncons::endian::native)
                     {
@@ -1664,7 +1673,11 @@ private:
                     jsoncons::endian e = get_typed_array_endianness(tag); 
                     const size_t bytes_per_elem = get_typed_array_bytes_per_element(tag);
 
-                    uint64_t* data = reinterpret_cast<uint64_t*>(typed_array_.data());
+                    // uint64_t* data = reinterpret_cast<uint64_t*>(typed_array_.data());
+                    uint64_t data_val;
+                    uint64_t* data = &data_val;
+                    memcpy(data, typed_array_.data(), bytes_per_elem);
+
                     std::size_t size = typed_array_.size()/bytes_per_elem;
                     if (e != jsoncons::endian::native)
                     {
@@ -1685,7 +1698,11 @@ private:
                         more_ = false;
                         return;
                     }
-                    int8_t* data = reinterpret_cast<int8_t*>(typed_array_.data());
+                    // int8_t* data = reinterpret_cast<int8_t*>(typed_array_.data());
+                    int8_t data_val;
+                    int8_t* data = &data_val;
+                    memcpy(data, typed_array_.data(), sizeof(int8_t));
+                    
                     std::size_t size = typed_array_.size();
                     more_ = visitor.typed_array(jsoncons::span<const int8_t>(data,size), semantic_tag::none, *this, ec);
                     break;
@@ -1704,7 +1721,11 @@ private:
                     jsoncons::endian e = get_typed_array_endianness(tag); 
                     const size_t bytes_per_elem = get_typed_array_bytes_per_element(tag);
 
-                    int16_t* data = reinterpret_cast<int16_t*>(typed_array_.data());
+                    // int16_t* data = reinterpret_cast<int16_t*>(typed_array_.data());
+                    int16_t data_val;
+                    int16_t* data = &data_val;
+                    memcpy(data, typed_array_.data(), bytes_per_elem);
+
                     std::size_t size = typed_array_.size()/bytes_per_elem;
                     if (e != jsoncons::endian::native)
                     {
@@ -1730,7 +1751,11 @@ private:
                     jsoncons::endian e = get_typed_array_endianness(tag); 
                     const size_t bytes_per_elem = get_typed_array_bytes_per_element(tag);
 
-                    int32_t* data = reinterpret_cast<int32_t*>(typed_array_.data());
+                    // int32_t* data = reinterpret_cast<int32_t*>(typed_array_.data());
+                    int32_t data_val;
+                    int32_t* data = &data_val;
+                    memcpy(data, typed_array_.data(), bytes_per_elem);
+
                     std::size_t size = typed_array_.size()/bytes_per_elem;
                     if (e != jsoncons::endian::native)
                     {
@@ -1756,7 +1781,11 @@ private:
                     jsoncons::endian e = get_typed_array_endianness(tag); 
                     const size_t bytes_per_elem = get_typed_array_bytes_per_element(tag);
 
-                    int64_t* data = reinterpret_cast<int64_t*>(typed_array_.data());
+                    // int64_t* data = reinterpret_cast<int64_t*>(typed_array_.data());
+                    int64_t data_val;
+                    int64_t* data = &data_val;
+                    memcpy(data, typed_array_.data(), bytes_per_elem);
+
                     std::size_t size = typed_array_.size()/bytes_per_elem;
                     if (e != jsoncons::endian::native)
                     {
@@ -1782,7 +1811,11 @@ private:
                     jsoncons::endian e = get_typed_array_endianness(tag); 
                     const size_t bytes_per_elem = get_typed_array_bytes_per_element(tag);
 
-                    uint16_t* data = reinterpret_cast<uint16_t*>(typed_array_.data());
+                    // uint16_t* data = reinterpret_cast<uint16_t*>(typed_array_.data());
+                    uint16_t data_val;
+                    uint16_t* data = &data_val;
+                    memcpy(&data, typed_array_.data(), bytes_per_elem);
+
                     std::size_t size = typed_array_.size()/bytes_per_elem;
                     if (e != jsoncons::endian::native)
                     {
@@ -1808,7 +1841,11 @@ private:
                     jsoncons::endian e = get_typed_array_endianness(tag); 
                     const size_t bytes_per_elem = get_typed_array_bytes_per_element(tag);
 
-                    float* data = reinterpret_cast<float*>(typed_array_.data());
+                    // float* data = reinterpret_cast<float*>(typed_array_.data());
+                    float data_val;
+                    float* data = &data_val;
+                    memcpy(data, typed_array_.data(), bytes_per_elem);
+
                     std::size_t size = typed_array_.size()/bytes_per_elem;
                     if (e != jsoncons::endian::native)
                     {
@@ -1834,7 +1871,11 @@ private:
                     jsoncons::endian e = get_typed_array_endianness(tag); 
                     const size_t bytes_per_elem = get_typed_array_bytes_per_element(tag);
 
-                    double* data = reinterpret_cast<double*>(typed_array_.data());
+                    // double* data = reinterpret_cast<double*>(typed_array_.data());
+                    double data_val;
+                    double* data = &data_val;
+                    memcpy(data, typed_array_.data(), bytes_per_elem);
+
                     std::size_t size = typed_array_.size()/bytes_per_elem;
 
                     if (e != jsoncons::endian::native)
